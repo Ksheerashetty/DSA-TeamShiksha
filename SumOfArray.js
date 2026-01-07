@@ -1,4 +1,4 @@
-// GFG
+// Link: https://www.geeksforgeeks.org/problems/sum-of-array2326/1
 // Sum of Array
 // Difficulty: Basic Accuracy: 74.98% Submissions: 146K+ Points: 1 Average Time: 20m
 // You are given an integer array arr[]. The task is to find the sum of it.
