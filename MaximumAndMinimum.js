@@ -1,4 +1,4 @@
-// GFG
+// Link: https://www.geeksforgeeks.org/problems/find-minimum-and-maximum-element-in-an-array4428/1
 // Min and Max in Array
 // Difficulty: Basic Accuracy: 68.55% Submissions: 398K+ Points: 1 Average Time: 10m
 // Given an array arr[]. Your task is to find the minimum and maximum elements in the array.
