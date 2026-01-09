@@ -27,7 +27,7 @@
 // 1 <= nums.length <= 1000
 // 1 <= nums[i] <= 105
 
-1.Brute Force (O(4n))
+1.Brute Force 1 - Prefix + Total Sum O(4n)
 /**
  * @param {number[]} nums
  * @return {number[]}
@@ -38,7 +38,6 @@ var leftRightDifference = function (nums) {
     rightSum[nums.length - 1] = 0
     for (let i = 1; i < nums.length; i++) {
         leftSum[i] = leftSum[i - 1] + nums[i - 1]
-        console.log(i, leftSum[i])
     }
     for(let i=0;i<nums.length;i++){
         sum+=nums[i]
@@ -55,4 +54,72 @@ var leftRightDifference = function (nums) {
 Time Complexity: O(n)
 Space Complexity: O(n)
 
-2.
+2.Brute Force 2 - Prefix + Suffix Arrays O(4n)
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var leftRightDifference = function(nums) {
+    let leftSum=[],rightSum=[],res=[]
+    leftSum[0]=0
+    rightSum[nums.length-1]=0
+    for(let i=1;i<nums.length;i++){
+        leftSum[i]=leftSum[i-1]+nums[i-1]
+    }
+    for(let i=nums.length-2;i>=0;i--){
+        rightSum[i]=rightSum[i+1]+nums[i+1]
+    }
+    for(let i=0;i<nums.length;i++){
+    res[i]=Math.abs(leftSum[i]-rightSum[i])
+    }
+    return res
+};
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+3.Optimal Approach - Prefix + Running Right Sum O(2n)
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var leftRightDifference = function(nums) {
+    let rsum=0,lsum=0,res=new Array(nums.length).fill(0)
+    for(let i=0;i<nums.length;i++){
+        rsum+=nums[i]
+    }
+
+    for(let i=0;i<nums.length;i++){
+        rsum-=nums[i]
+        res[i]=Math.abs(rsum-lsum)
+        lsum+=nums[i]
+    }
+    return res
+    
+};
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+4.In place Approach
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var leftRightDifference = function(nums) {
+    let rsum=0,lsum=0,val=0
+    for(let i=0;i<nums.length;i++){
+        rsum+=nums[i]
+    }
+    for(let i=0;i<nums.length;i++){
+        val=nums[i]
+        rsum-= val
+        nums[i]=Math.abs(rsum-lsum) 
+        lsum+=val
+    }
+
+    return nums
+};
+
+Time Complexity: O(n)
+Space Complexity: O(1)
