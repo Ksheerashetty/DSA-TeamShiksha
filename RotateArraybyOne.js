@@ -15,11 +15,25 @@
 // 1<=arr.size()<=105
 // 0<=arr[i]<=105
 
-class Solution {
+1.class Solution {
     rotate(arr) {
          let n=arr.length,temp=arr[n-1]
         for(let i=n-1;i>0;i--){
             arr[i]=arr[i-1]
+        }
+        arr[0]=temp
+        return arr
+    }
+}
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+2.class Solution {
+    rotate(arr) {
+         let n=arr.length,temp=arr[n-1]
+        for(let i=0;i<n;i++){
+            arr[n-i-1]=arr[n-i-2]
         }
         arr[0]=temp
         return arr
