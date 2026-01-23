@@ -1,5 +1,7 @@
+// 705. Design HashSet
 // Design a HashSet without using any built-in hash table libraries.
 //Problem Link: https://leetcode.com/explore/learn/card/hash-table/182/practical-applications/1139/
+//https://leetcode.com/problems/design-hashset/description/
 // Implement MyHashSet class:
 // void add(key) Inserts the value key into the HashSet.
 // bool contains(key) Returns whether the value key exists in the HashSet or not.
