@@ -8,8 +8,6 @@
 
 // NOTE: Suppose B = 4 and array A contains 10 elements then
 
-// You can pick the first four elements or can pick the last four elements or can pick 1 from the front and 3 from the back etc. you need to return the maximum possible sum of elements you can pick.
-
 
 // Problem Constraints
 // 1 <= N <= 105
@@ -44,7 +42,7 @@
 // Explanation 2:
 //  Pick element 2 from end as this is the maximum we can get 2
 
-1.Brute Force
+1. Brute Force
 module.exports = {
 	//param A : array of integers
 	//param B : integer
@@ -65,5 +63,7 @@ module.exports = {
 	}
 };
 
-Time Complexity: O(n)
+Time Complexity: O(n^2)
 Space Complexity: O(1)
+
+2.
