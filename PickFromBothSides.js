@@ -66,4 +66,41 @@ module.exports = {
 Time Complexity: O(n^2)
 Space Complexity: O(1)
 
-2.
+2. Using suffix and prefix sum
+module.exports = {
+    //param A : array of integers
+    //param B : integer
+    //return an integer
+    solve: function (A, B) {
+        let max = -Infinity, prefix = [], suffix = []
+
+        // Prefix
+        prefix[0] = A[0]
+        for (let i = 1; i < A.length; i++) {
+            prefix[i] = A[i] + prefix[i - 1]
+        }
+
+        //Suffix
+        suffix[A.length - 1] = A[A.length - 1]
+        for (let i = A.length - 2; i >= 0; i--) {
+            suffix[i] = A[i] + suffix[i + 1]
+        }
+
+        //leftsum and rightsum
+        for (let i = 0; i <= B; i++) {
+            let ls = 0, rs = 0
+			//when its not l=0,r=3
+            if (i > 0)
+                ls = prefix[i - 1] // take i from left
+			//when its not l=3,r=0
+            if (B - i > 0)
+                rs =suffix[A.length - (B - i)]  // take B-i from right
+            max = Math.max(max, ls + rs)
+        }
+        return max;
+
+    }
+};
+
+Time Complexity: O(n)
+Space Complexity: O(n)
